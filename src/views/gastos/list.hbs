@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+
+       
+            <table class="table mt-5 col-10 mx-auto ">
+              {{#if gastos}}
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">Tienda</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col" class="'col-4" colspan="2">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {{#each gastos}}
+                    <tr>
+                        <th class="align-middle" scope="row">{{ tienda }}</th>
+                        <td class="align-middle">{{ cantidad }}</td>
+                        <td class="align-middle" >{{ timeago fecha }}</td>
+                        <td class="align-middle col-5">{{ description }}</td>
+                        <td class="align-middle" ><a href="/gastos/edit/{{id}}" class="btn " >edit</a></td>
+                        <td class="align-middle" ><a href="/gastos/delete/{{id}}" class="btn btn-danger" >Delete</a></td>
+                    </tr>
+
+                  
+
+                    {{/each}}
+                    
+                    {{else}}
+
+                    <div class="col-md-4 mx-auto">
+                        <div class="card mt-5 card-body text-center">
+                            <p>No existen gastos registrados</p>
+                            <a href="/gastos/add">Registra gasto</a>
+                        </div>
+                    </div>
+
+                    {{/if}}
+                </tbody>
+                </table>
+
+        
+
+    </div>
+</div>
